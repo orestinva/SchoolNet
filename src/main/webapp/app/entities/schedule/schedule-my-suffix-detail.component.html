@@ -1,0 +1,55 @@
+
+<div *ngIf="schedule">
+    <h2><span jhiTranslate="schoolNetApp.schedule.detail.title">Schedule</span> {{schedule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="schoolNetApp.schedule.date">Date</span></dt>
+        <dd>
+            <span>{{schedule.date | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.schedule.homework">Homework</span></dt>
+        <dd>
+            <span>{{schedule.homework}}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.schedule.lessonPosition">Lesson Position</span></dt>
+        <dd>
+            <span>{{schedule.lessonPosition}}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.schedule.enabled">Enabled</span></dt>
+        <dd>
+            <span>{{schedule.enabled}}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.schedule.lesson">Lesson</span></dt>
+        <dd>
+            <div *ngIf="schedule.lessonId">
+                <a [routerLink]="['/lesson-my-suffix', schedule.lessonId]">{{schedule.lessonId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.schedule.form">Form</span></dt>
+        <dd>
+            <div *ngIf="schedule.formId">
+                <a [routerLink]="['/form-my-suffix', schedule.formId]">{{schedule.formId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.schedule.classroom">Classroom</span></dt>
+        <dd>
+            <div *ngIf="schedule.classroomId">
+                <a [routerLink]="['/classroom-my-suffix', schedule.classroomId]">{{schedule.classroomId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'schedule-my-suffix/'+ schedule.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

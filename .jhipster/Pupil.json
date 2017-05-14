@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pupil"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "attendances",
+            "otherEntityName": "attendances",
+            "otherEntityRelationshipName": "pupil"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "form",
+            "otherEntityName": "form",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "parent",
+            "otherEntityName": "parent",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "pupil"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "enabled",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170514213822",
+    "entityTableName": "pupil",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularJSSuffix": "mySuffix"
+}

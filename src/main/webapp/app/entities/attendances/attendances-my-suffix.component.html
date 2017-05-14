@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="schoolNetApp.attendances.home.title">Attendances</span>
+        <button class="btn btn-primary float-right create-attendances-my-suffix" [routerLink]="['/', { outlets: { popup: ['attendances-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="schoolNetApp.attendances.home.createLabel">
+            Create new Attendances
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="attendances">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="schoolNetApp.attendances.grade">Grade</span></th>
+            <th><span jhiTranslate="schoolNetApp.attendances.enabled">Enabled</span></th>
+            <th><span jhiTranslate="schoolNetApp.attendances.pupil">Pupil</span></th>
+            <th><span jhiTranslate="schoolNetApp.attendances.schedule">Schedule</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let attendances of attendances ;trackBy: trackId">
+                <td><a [routerLink]="['../attendances-my-suffix', attendances.id ]">{{attendances.id}}</a></td>
+                <td>{{attendances.grade}}</td>
+                <td>{{attendances.enabled}}</td>
+                <td>
+                    <div *ngIf="attendances.pupilId">
+                        <a [routerLink]="['../pupil-my-suffix', attendances.pupilId  ]" >{{attendances.pupilId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="attendances.scheduleId">
+                        <a [routerLink]="['../schedule-my-suffix', attendances.scheduleId  ]" >{{attendances.scheduleId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../attendances-my-suffix', attendances.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'attendances-my-suffix/'+ attendances.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'attendances-my-suffix/'+ attendances.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

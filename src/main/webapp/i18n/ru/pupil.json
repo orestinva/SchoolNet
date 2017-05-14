@@ -1,0 +1,25 @@
+{
+    "schoolNetApp": {
+        "pupil" : {
+            "home": {
+                "title": "Pupils",
+                "createLabel": "Создать новый Pupil",
+                "createOrEditLabel": "Создать или отредактировать Pupil"
+            },
+            "created": "Новый Pupil создан с идентификатором {{ param }}",
+            "updated": "Pupil обновлен с идентификатором {{ param }}",
+            "deleted": "Pupil удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Pupil {{ id }}?"
+            },
+            "detail": {
+                "title": "Pupil"
+            },
+            "enabled": "Enabled",
+            "user": "User",
+            "attendances": "Attendances",
+            "form": "Form",
+            "parent": "Parent"
+        }
+    }
+}

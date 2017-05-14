@@ -1,0 +1,24 @@
+{
+    "schoolNetApp": {
+        "classroom" : {
+            "home": {
+                "title": "Classrooms",
+                "createLabel": "Создать новый Classroom",
+                "createOrEditLabel": "Создать или отредактировать Classroom"
+            },
+            "created": "Новый Classroom создан с идентификатором {{ param }}",
+            "updated": "Classroom обновлен с идентификатором {{ param }}",
+            "deleted": "Classroom удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Classroom {{ id }}?"
+            },
+            "detail": {
+                "title": "Classroom"
+            },
+            "name": "Name",
+            "enabled": "Enabled",
+            "schedule": "Schedule",
+            "school": "School"
+        }
+    }
+}

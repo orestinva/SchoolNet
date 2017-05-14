@@ -1,0 +1,24 @@
+{
+    "schoolNetApp": {
+        "lesson" : {
+            "home": {
+                "title": "Lessons",
+                "createLabel": "Создать новый Lesson",
+                "createOrEditLabel": "Создать или отредактировать Lesson"
+            },
+            "created": "Новый Lesson создан с идентификатором {{ param }}",
+            "updated": "Lesson обновлен с идентификатором {{ param }}",
+            "deleted": "Lesson удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Lesson {{ id }}?"
+            },
+            "detail": {
+                "title": "Lesson"
+            },
+            "name": "Name",
+            "enabled": "Enabled",
+            "schedule": "Schedule",
+            "teacher": "Teacher"
+        }
+    }
+}

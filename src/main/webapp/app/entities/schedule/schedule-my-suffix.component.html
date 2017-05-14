@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span jhiTranslate="schoolNetApp.schedule.home.title">Schedules</span>
+        <button class="btn btn-primary float-right create-schedule-my-suffix" [routerLink]="['/', { outlets: { popup: ['schedule-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="schoolNetApp.schedule.home.createLabel">
+            Create new Schedule
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="schedules">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="schoolNetApp.schedule.date">Date</span></th>
+            <th><span jhiTranslate="schoolNetApp.schedule.homework">Homework</span></th>
+            <th><span jhiTranslate="schoolNetApp.schedule.lessonPosition">Lesson Position</span></th>
+            <th><span jhiTranslate="schoolNetApp.schedule.enabled">Enabled</span></th>
+            <th><span jhiTranslate="schoolNetApp.schedule.lesson">Lesson</span></th>
+            <th><span jhiTranslate="schoolNetApp.schedule.form">Form</span></th>
+            <th><span jhiTranslate="schoolNetApp.schedule.classroom">Classroom</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let schedule of schedules ;trackBy: trackId">
+                <td><a [routerLink]="['../schedule-my-suffix', schedule.id ]">{{schedule.id}}</a></td>
+                <td>{{schedule.date | date:'medium'}}</td>
+                <td>{{schedule.homework}}</td>
+                <td>{{schedule.lessonPosition}}</td>
+                <td>{{schedule.enabled}}</td>
+                <td>
+                    <div *ngIf="schedule.lessonId">
+                        <a [routerLink]="['../lesson-my-suffix', schedule.lessonId  ]" >{{schedule.lessonId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="schedule.formId">
+                        <a [routerLink]="['../form-my-suffix', schedule.formId  ]" >{{schedule.formId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="schedule.classroomId">
+                        <a [routerLink]="['../classroom-my-suffix', schedule.classroomId  ]" >{{schedule.classroomId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../schedule-my-suffix', schedule.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'schedule-my-suffix/'+ schedule.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'schedule-my-suffix/'+ schedule.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

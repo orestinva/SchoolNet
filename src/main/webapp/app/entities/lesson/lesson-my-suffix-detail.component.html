@@ -1,0 +1,29 @@
+
+<div *ngIf="lesson">
+    <h2><span jhiTranslate="schoolNetApp.lesson.detail.title">Lesson</span> {{lesson.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="schoolNetApp.lesson.name">Name</span></dt>
+        <dd>
+            <span>{{lesson.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.lesson.enabled">Enabled</span></dt>
+        <dd>
+            <span>{{lesson.enabled}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'lesson-my-suffix/'+ lesson.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAttendancesLabel" jhiTranslate="schoolNetApp.attendances.home.createOrEditLabel">Create or edit a Attendances</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!attendances.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="attendances.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="schoolNetApp.attendances.grade" for="field_grade">Grade</label>
+            <input type="number" class="form-control" name="grade" id="field_grade"
+                [(ngModel)]="attendances.grade"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="schoolNetApp.attendances.enabled" for="field_enabled">Enabled</label>
+            <input type="checkbox" class="form-control" name="enabled" id="field_enabled"
+                [(ngModel)]="attendances.enabled"
+             />
+            <div [hidden]="!(editForm.controls.enabled?.dirty && editForm.controls.enabled?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.enabled?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="schoolNetApp.attendances.pupil" for="field_pupil">Pupil</label>
+            <select class="form-control" id="field_pupil" name="pupil" [(ngModel)]="attendances.pupilId"  required>
+                <option [ngValue]="pupilOption.id" *ngFor="let pupilOption of pupils; trackBy: trackPupilById">{{pupilOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.pupil?.dirty && editForm.controls.pupil?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.pupil?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="schoolNetApp.attendances.schedule" for="field_schedule">Schedule</label>
+            <select class="form-control" id="field_schedule" name="schedule" [(ngModel)]="attendances.scheduleId"  required>
+                <option [ngValue]="scheduleOption.id" *ngFor="let scheduleOption of schedules; trackBy: trackScheduleById">{{scheduleOption.id}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.schedule?.dirty && editForm.controls.schedule?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.schedule?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

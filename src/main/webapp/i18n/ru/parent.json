@@ -1,0 +1,23 @@
+{
+    "schoolNetApp": {
+        "parent" : {
+            "home": {
+                "title": "Parents",
+                "createLabel": "Создать новый Parent",
+                "createOrEditLabel": "Создать или отредактировать Parent"
+            },
+            "created": "Новый Parent создан с идентификатором {{ param }}",
+            "updated": "Parent обновлен с идентификатором {{ param }}",
+            "deleted": "Parent удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Parent {{ id }}?"
+            },
+            "detail": {
+                "title": "Parent"
+            },
+            "enabled": "Enabled",
+            "user": "User",
+            "pupil": "Pupil"
+        }
+    }
+}

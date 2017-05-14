@@ -1,0 +1,25 @@
+{
+    "schoolNetApp": {
+        "pupil" : {
+            "home": {
+                "title": "Pupils",
+                "createLabel": "Create a new Pupil",
+                "createOrEditLabel": "Create or edit a Pupil"
+            },
+            "created": "A new Pupil is created with identifier {{ param }}",
+            "updated": "A Pupil is updated with identifier {{ param }}",
+            "deleted": "A Pupil is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Pupil {{ id }}?"
+            },
+            "detail": {
+                "title": "Pupil"
+            },
+            "enabled": "Enabled",
+            "user": "User",
+            "attendances": "Attendances",
+            "form": "Form",
+            "parent": "Parent"
+        }
+    }
+}

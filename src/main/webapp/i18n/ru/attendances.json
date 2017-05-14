@@ -1,0 +1,24 @@
+{
+    "schoolNetApp": {
+        "attendances" : {
+            "home": {
+                "title": "Attendances",
+                "createLabel": "Создать новый Attendances",
+                "createOrEditLabel": "Создать или отредактировать Attendances"
+            },
+            "created": "Новый Attendances создан с идентификатором {{ param }}",
+            "updated": "Attendances обновлен с идентификатором {{ param }}",
+            "deleted": "Attendances удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Attendances {{ id }}?"
+            },
+            "detail": {
+                "title": "Attendances"
+            },
+            "grade": "Grade",
+            "enabled": "Enabled",
+            "pupil": "Pupil",
+            "schedule": "Schedule"
+        }
+    }
+}

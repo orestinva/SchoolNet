@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Teacher.
+    -->
+    <changeSet id="20170514213823-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="teacher"
+                                 constraintName="fk_teacher_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="form_id"
+                                 baseTableName="teacher"
+                                 constraintName="fk_teacher_form_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="form"/>
+
+        <addForeignKeyConstraint baseColumnNames="teachers_id"
+                                 baseTableName="teacher_lesson"
+                                 constraintName="fk_teacher_lesson_teachers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="teacher"/>
+        <addForeignKeyConstraint baseColumnNames="lessons_id"
+                                 baseTableName="teacher_lesson"
+                                 constraintName="fk_teacher_lesson_lessons_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lesson"/>
+        
+        <addForeignKeyConstraint baseColumnNames="school_id"
+                                 baseTableName="teacher"
+                                 constraintName="fk_teacher_school_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="school"/>
+
+    </changeSet>
+</databaseChangeLog>

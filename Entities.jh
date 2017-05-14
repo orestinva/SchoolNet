@@ -1,0 +1,114 @@
+
+entity School {
+	name String required,
+    enabled Boolean required
+}
+
+entity Form {
+	name String required,
+    enabled Boolean required
+}
+
+entity Pupil {
+    enabled Boolean required
+}
+
+entity Teacher {
+    enabled Boolean required
+}
+
+entity Classroom {
+    name String required,
+    enabled Boolean required
+}
+
+entity Lesson {
+    name String required,
+    enabled Boolean required
+}
+
+
+entity Schedule {
+	date ZonedDateTime required,
+	homework String,
+	lessonPosition Integer required,
+    enabled Boolean required
+}
+
+entity Attendances {
+    grade Integer,
+    enabled Boolean required
+}
+
+entity Parent {
+    enabled Boolean required
+}
+
+relationship ManyToMany {
+	Parent{pupil} to Pupil{parent}
+}
+
+relationship ManyToMany {
+	Teacher{lesson} to Lesson{teacher}
+}
+
+relationship OneToMany {
+	Pupil to Attendances{pupil required}
+}
+
+relationship OneToMany {
+	Schedule to Attendances{schedule required}
+}
+
+
+relationship OneToMany {
+	Form to Pupil{form required}
+}
+
+relationship OneToMany {
+	School to Classroom{school required}
+}
+
+relationship OneToMany {
+	School to Form{school required}
+}
+
+relationship OneToMany {
+	School to Teacher{school required}
+}
+
+relationship OneToMany {
+	Lesson to Schedule{lesson required}
+}
+
+relationship OneToMany {
+	Form to Schedule{form required}
+}
+
+relationship OneToMany {
+	Classroom to Schedule{classroom required}
+}
+
+relationship OneToOne {
+	Pupil{user required} to User
+}
+
+relationship OneToOne {
+	Parent{user required} to User
+}
+
+relationship OneToOne {
+	Teacher{user required} to User
+}
+
+relationship OneToOne {
+	Teacher{form required} to Form
+}
+
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix

@@ -1,0 +1,41 @@
+
+<div *ngIf="attendances">
+    <h2><span jhiTranslate="schoolNetApp.attendances.detail.title">Attendances</span> {{attendances.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="schoolNetApp.attendances.grade">Grade</span></dt>
+        <dd>
+            <span>{{attendances.grade}}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.attendances.enabled">Enabled</span></dt>
+        <dd>
+            <span>{{attendances.enabled}}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.attendances.pupil">Pupil</span></dt>
+        <dd>
+            <div *ngIf="attendances.pupilId">
+                <a [routerLink]="['/pupil-my-suffix', attendances.pupilId]">{{attendances.pupilId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="schoolNetApp.attendances.schedule">Schedule</span></dt>
+        <dd>
+            <div *ngIf="attendances.scheduleId">
+                <a [routerLink]="['/schedule-my-suffix', attendances.scheduleId]">{{attendances.scheduleId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'attendances-my-suffix/'+ attendances.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
